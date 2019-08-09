@@ -1,4 +1,11 @@
 package com.example.comvasmvp
 
-class ComvasMVPApplication {
+import android.app.Application
+import io.realm.Realm
+
+class ComvasMVPApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        Realm.init(this)
+    }
 }
