@@ -11,6 +11,8 @@ import io.realm.kotlin.where
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
+import org.jetbrains.anko.startActivity
+
 class MainActivity : AppCompatActivity() {
     private lateinit var realm: Realm
 
@@ -24,8 +26,9 @@ class MainActivity : AppCompatActivity() {
         listView.adapter = ProjectAdapter(projects)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+            startActivity<ProjectEditActivity>()
         }
     }
 
