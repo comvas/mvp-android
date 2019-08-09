@@ -6,7 +6,7 @@ import java.util.*
 
 open class Project : RealmObject() {
     @PrimaryKey
-    var projectid: Long = 0
+    var projectId: Long = 0
     var date: Date = Date()
     var title: String = ""
     var detail: String = ""
