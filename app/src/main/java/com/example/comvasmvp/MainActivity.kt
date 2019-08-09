@@ -9,6 +9,7 @@ import io.realm.Realm
 import io.realm.kotlin.where
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var realm: Realm
