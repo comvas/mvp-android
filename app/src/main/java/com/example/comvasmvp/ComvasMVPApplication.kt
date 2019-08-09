@@ -1,4 +1,4 @@
 package com.example.comvasmvp
 
-class ComvasApplication {
+class ComvasMVPApplication {
 }
