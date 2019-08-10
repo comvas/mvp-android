@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         listView.setOnItemClickListener { parent, view, position, id ->
             val project = parent.getItemAtPosition(position) as Project
-            startActivity<ProjectEditActivity>("project_id" to project.projectId)
+            //startActivity<ProjectEditActivity>("project_id" to project.projectId)
+            startActivity<MainNaviActivity>("project_id" to project.projectId)
         }
 
         fab.setOnClickListener { view ->

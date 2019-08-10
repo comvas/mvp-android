@@ -11,7 +11,10 @@ class MainNaviActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                textMessage.setText(R.string.title_home)
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, HomeFragment())
+                    .commit()
+//                textMessage.setText(R.string.title_home)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
@@ -33,5 +36,7 @@ class MainNaviActivity : AppCompatActivity() {
 
         textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+        val projectId = intent?.getLongExtra("project_id", -1L)
     }
 }
