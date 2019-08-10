@@ -3,6 +3,7 @@ package com.example.comvasmvp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.view.View
 import io.realm.Realm
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
@@ -29,6 +30,10 @@ class ProjectEditActivity : AppCompatActivity() {
             dateEdit.setText(DateFormat.format("yyyy/MM/dd", project?.date))
             titleEdit.setText(project?.title)
             detailEdit.setText(project?.detail)
+
+            deleteProject.visibility = View.VISIBLE
+        } else {
+            deleteProject.visibility = View.INVISIBLE
         }
 
         saveProject.setOnClickListener {
@@ -62,6 +67,15 @@ class ProjectEditActivity : AppCompatActivity() {
                     }.show()
                 }
             }
+        }
+
+        deleteProject.setOnClickListener {
+            realm.executeTransaction {
+                realm.where<Project>().equalTo("projectId", projectId)?.findFirst()?.deleteFromRealm()
+            }
+            alert("削除しました") {
+                yesButton { finish() }
+            }.show()
         }
     }
 
