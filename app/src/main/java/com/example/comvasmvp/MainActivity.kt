@@ -25,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         val projects = realm.where<Project>().findAll()
         listView.adapter = ProjectAdapter(projects)
 
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val project = parent.getItemAtPosition(position) as Project
+            startActivity<ProjectEditActivity>("project_id" to project.projectId)
+        }
+
         fab.setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null).show()

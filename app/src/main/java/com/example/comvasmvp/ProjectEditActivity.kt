@@ -2,6 +2,7 @@ package com.example.comvasmvp
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.format.DateFormat
 import io.realm.Realm
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
@@ -21,20 +22,46 @@ class ProjectEditActivity : AppCompatActivity() {
         setContentView(R.layout.activity_project_edit)
 
         realm = Realm.getDefaultInstance()
+
+        val projectId = intent?.getLongExtra("project_id", -1L)
+        if (projectId != -1L) {
+            val project = realm.where<Project>().equalTo("projectId", projectId).findFirst()
+            dateEdit.setText(DateFormat.format("yyyy/MM/dd", project?.date))
+            titleEdit.setText(project?.title)
+            detailEdit.setText(project?.detail)
+        }
+
         saveProject.setOnClickListener {
-            realm.executeTransaction {
-                val maxId = realm.where<Project>().max("projectId")
-                val nextId = (maxId?.toLong() ?: 0L) + 1
-                val project = realm.createObject<Project>(nextId)
-                dateEdit.text.toString().toDate("yyyy/MM/dd")?.let {
-                    project.date = it
+            when (projectId) {
+                -1L -> {
+                    realm.executeTransaction {
+                        val maxId = realm.where<Project>().max("projectId")
+                        val nextId = (maxId?.toLong() ?: 0L) + 1
+                        val project = realm.createObject<Project>(nextId)
+                        dateEdit.text.toString().toDate("yyyy/MM/dd")?.let {
+                            project.date = it
+                        }
+                        project.title = titleEdit.text.toString()
+                        project.detail = detailEdit.text.toString()
+                    }
+                    alert("追加しました") {
+                        yesButton { finish() }
+                    }.show()
                 }
-                project.title = titleEdit.text.toString()
-                project.detail = detailEdit.text.toString()
+                else -> {
+                    realm.executeTransaction {
+                        val project = realm.where<Project>().equalTo("projectId", projectId).findFirst()
+                        dateEdit.text.toString().toDate("yyyy.MM.dd")?.let {
+                            project?.date = it
+                        }
+                        project?.title = titleEdit.text.toString()
+                        project?.detail = detailEdit.text.toString()
+                    }
+                    alert("修正しました") {
+                        yesButton { finish() }
+                    }.show()
+                }
             }
-            alert("追加しました") {
-                yesButton {finish()}
-            }.show()
         }
     }
 
