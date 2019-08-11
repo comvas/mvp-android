@@ -1,5 +1,6 @@
 package com.example.comvasmvp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +29,11 @@ class MainActivity : AppCompatActivity() {
         listView.setOnItemClickListener { parent, view, position, id ->
             val project = parent.getItemAtPosition(position) as Project
             //startActivity<ProjectEditActivity>("project_id" to project.projectId)
-            startActivity<MainNaviActivity>("project_id" to project.projectId)
+
+            val intent = Intent(this, MainNaviActivity::class.java)
+            intent.putExtra("project_id", project.projectId)
+            startActivity(intent)
+            //startActivity<MainNaviActivity>("project_id" to project.projectId)
         }
 
         fab.setOnClickListener { view ->

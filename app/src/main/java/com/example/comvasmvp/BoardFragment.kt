@@ -48,9 +48,9 @@ class BoardFragment : Fragment() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = CustomPagerAdapter(childFragmentManager)
-        adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId), "HI-FIVES")
-        adapter.addFragment(ColorFragment.createInstance("hoge", Color.BLUE, projectId), "HI-FIVES")
-        adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId), "HI-FIVES")
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId, 1), "HI-FIVES")
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.BLUE, projectId, 2), "HI-FIVES")
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId, 3), "HI-FIVES")
         viewPager.adapter = adapter
 
     }
