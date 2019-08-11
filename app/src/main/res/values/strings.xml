@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">ComvasMVP</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main_navi">MainNaviActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_board">Board</string>
+    <string name="title_backlog">Backlog</string>
+    <string name="title_roadmap">Roadmap</string>
 </resources>
