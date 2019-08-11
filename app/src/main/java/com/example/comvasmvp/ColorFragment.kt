@@ -39,6 +39,24 @@ class ColorFragment : Fragment() {
 //        return fragment
 //    }
 
+    companion object {
+        private val KEY_NAME = "key_name"
+        private val KEY_BACKGROUND = "key_background_color"
+        private val KEY_PROJECTID = "project_id"
+
+        fun createInstance(name: String, @ColorInt color: Int, projectId: Long): ColorFragment {
+            var colorFragment = ColorFragment()
+            val args = Bundle()
+            // Key/Pairの形で値をセットする
+            args.putString(KEY_NAME, name)
+            args.putInt(KEY_BACKGROUND, color)
+            args.putLong(KEY_PROJECTID, projectId)
+            colorFragment.arguments = args
+
+            return colorFragment
+        }
+    }
+
 
     // 値をonCreateで受け取るため、新規で変数を作成する
     // 値がセットされなかった時のために初期値をセットする

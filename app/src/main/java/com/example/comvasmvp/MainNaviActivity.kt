@@ -4,13 +4,10 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import android.content.Context
-import android.graphics.Color
-import android.support.v4.view.ViewPager
-import android.view.View
-
 
 class MainNaviActivity : AppCompatActivity() {
+
+    private val projectId: Long = 0
 
     private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -23,9 +20,12 @@ class MainNaviActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_board -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.frameLayout, BoardFragment())
-                    .commit()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frameLayout, BoardFragment.createInstance(projectId))
+                transaction.commit()
+//                supportFragmentManager.beginTransaction()
+//                    .replace(R.id.frameLayout, BoardFragment)
+//                    .commit()
 //                textMessage.setText(R.string.title_board)
                 return@OnNavigationItemSelectedListener true
             }
@@ -59,5 +59,6 @@ class MainNaviActivity : AppCompatActivity() {
             .replace(R.id.frameLayout, HomeFragment())
             .commit()
 
+        val projectId = intent?.getLongExtra("project_id", -1L)
     }
 }

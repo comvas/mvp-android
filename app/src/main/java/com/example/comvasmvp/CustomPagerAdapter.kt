@@ -58,17 +58,9 @@ class CustomPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     private val KEY_NAME = "key_name"
     private val KEY_BACKGROUND = "key_background_color"
+    private val KEY_PROJECTID = "project_id"
 
-    fun addFragment(fragment: Fragment, title: String, name: String, @ColorInt color: Int) {
-
-        // Fragmentに渡す値はBundleという型でやり取りする
-        val args = Bundle()
-        // Key/Pairの形で値をセットする
-        args.putString(KEY_NAME, name)
-        args.putInt(KEY_BACKGROUND, color)
-        // Fragmentに値をセットする
-        fragment.setArguments(args)
-
+    fun addFragment(fragment: Fragment, title: String) {
         mFragments.add(fragment)
         mFragmentTitles.add(title)
     }

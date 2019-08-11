@@ -9,9 +9,29 @@ import android.view.View
 import android.view.ViewGroup
 
 
-
-
 class BoardFragment : Fragment() {
+
+    private var projectId: Long = 0
+
+    companion object {
+        private const val KEY_PROJECTID = "project_id"
+
+        fun createInstance(projectId: Long): BoardFragment {
+            val boardFragment = BoardFragment()
+            val args = Bundle()
+            args.putLong(KEY_PROJECTID, projectId)
+            boardFragment.arguments = args
+            return boardFragment
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val args = arguments
+        if (args != null) {
+            projectId = args.getLong(KEY_PROJECTID)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_board, container, false)
@@ -28,11 +48,9 @@ class BoardFragment : Fragment() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = CustomPagerAdapter(childFragmentManager)
-        //adapter.addFragment(Tab1Fragment(), "PHOTOS")
-        //adapter.addFragment(Tab2Fragment(), "HI-FIVES")
-        adapter.addFragment(ColorFragment(), "HI-FIVES", "hoge", Color.RED)
-        adapter.addFragment(ColorFragment(), "HI-FIVES", "hoge", Color.BLUE)
-        adapter.addFragment(ColorFragment(), "HI-FIVES", "hoge", Color.RED)
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId), "HI-FIVES")
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.BLUE, projectId), "HI-FIVES")
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId), "HI-FIVES")
         viewPager.adapter = adapter
 
     }
