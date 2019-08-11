@@ -6,7 +6,6 @@ import java.util.*
 import io.realm.RealmList
 
 
-
 open class Project : RealmObject() {
     @PrimaryKey
     var projectId: Long = 0
@@ -14,5 +13,5 @@ open class Project : RealmObject() {
     var title: String = ""
     var detail: String = ""
 
-    var list: RealmList<Board>? = null
+    var boardList: RealmList<Board>? = null
 }
