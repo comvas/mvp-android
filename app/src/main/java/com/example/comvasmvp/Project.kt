@@ -14,5 +14,5 @@ open class Project : RealmObject() {
     var title: String = ""
     var detail: String = ""
 
-    var list: RealmList<Board>? = null
+    //var list: RealmList<Board>? = null
 }
