@@ -17,12 +17,16 @@ class MainNaviActivity : AppCompatActivity() {
 //                textMessage.setText(R.string.title_home)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
-                textMessage.setText(R.string.title_dashboard)
+            R.id.navigation_board -> {
+                textMessage.setText(R.string.title_board)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
-                textMessage.setText(R.string.title_notifications)
+            R.id.navigation_backlog -> {
+                textMessage.setText(R.string.title_backlog)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_roadmap -> {
+                textMessage.setText(R.string.title_roadmap)
                 return@OnNavigationItemSelectedListener true
             }
         }
