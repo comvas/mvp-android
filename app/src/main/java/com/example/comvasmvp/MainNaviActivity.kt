@@ -18,15 +18,24 @@ class MainNaviActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_board -> {
-                textMessage.setText(R.string.title_board)
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, BoardFragment())
+                    .commit()
+//                textMessage.setText(R.string.title_board)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_backlog -> {
-                textMessage.setText(R.string.title_backlog)
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, BacklogFragment())
+                    .commit()
+//                textMessage.setText(R.string.title_backlog)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_roadmap -> {
-                textMessage.setText(R.string.title_roadmap)
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, RoadmapFragment())
+                    .commit()
+//                textMessage.setText(R.string.title_roadmap)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -38,8 +47,12 @@ class MainNaviActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_navi)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        textMessage = findViewById(R.id.message)
+        //textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, HomeFragment())
+            .commit()
 
         val projectId = intent?.getLongExtra("project_id", -1L)
     }
