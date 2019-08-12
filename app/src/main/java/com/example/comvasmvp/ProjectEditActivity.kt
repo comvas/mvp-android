@@ -39,7 +39,6 @@ class ProjectEditActivity : AppCompatActivity() {
         saveProject.setOnClickListener {
             when (projectId) {
                 -1L -> {
-                    var tmp = 0
                     realm.executeTransaction {
                         // Create new data for Project
                         val projectMaxId = realm.where<Project>().max("projectId")
