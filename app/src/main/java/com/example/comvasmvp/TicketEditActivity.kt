@@ -64,9 +64,12 @@ class TicketEditActivity : AppCompatActivity() {
                         val ticketNextPriority = (ticketMaxPriority?.toLong() ?: 0L) + 1
                         ticket.priority = ticketNextPriority
                         ticket.detail = ticketDetailEdit.text.toString()
-                        ticket.detail = ticketDetailEdit.text.toString()
-                        ticket.point = ticketPointEdit.text.toString().toLong()
-                        ticket.progress = ticketProgressEdit.text.toString().toLong()
+                        if (ticketPointEdit.text.toString() == "") {
+                            ticket.point = 0L
+                        } else {
+                            ticket.point = ticketPointEdit.text.toString().toLong()
+                        }
+                        ticket.progress = 0
                         ticket.tag = ticketTagEdit.text.toString()
 
                         // Set relationship between board and ticket
@@ -99,7 +102,7 @@ class TicketEditActivity : AppCompatActivity() {
 
         deleteTicket.setOnClickListener {
             realm.executeTransaction {
-                realm.where<Project>().equalTo("ticketId", ticketId)?.findFirst()?.deleteFromRealm()
+                realm.where<Ticket>().equalTo("ticketId", ticketId)?.findFirst()?.deleteFromRealm()
             }
             alert("削除しました") {
                 yesButton { finish() }
