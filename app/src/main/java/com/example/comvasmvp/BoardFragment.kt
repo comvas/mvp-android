@@ -63,9 +63,10 @@ class BoardFragment : Fragment() {
         // １，boardListのインスタンスにおいて、priorityでソート
         // ２，forで回しながら、プライオリティ昇順にfragmentを生成していく
         val adapter = CustomPagerAdapter(childFragmentManager)
-        adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId, boards?.get(0)!!.boardId), "HI-FIVES")
-        adapter.addFragment(ColorFragment.createInstance("hoge", Color.BLUE, projectId, boards?.get(1)!!.boardId), "HI-FIVES")
-        adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId, boards?.get(2)!!.boardId), "HI-FIVES")
+        //adapter.addFragment(ColorFragment.createInstance("hoge", Color.RED, projectId, boards?.get(0)!!.boardId), "HI-FIVES")
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.parseColor("#3F7A63"), projectId, boards?.get(0)!!.boardId), "HI-FIVES")
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.parseColor("#F29089"), projectId, boards?.get(1)!!.boardId), "HI-FIVES")
+        adapter.addFragment(ColorFragment.createInstance("hoge", Color.parseColor("#3F7A63"), projectId, boards?.get(2)!!.boardId), "HI-FIVES")
         viewPager.adapter = adapter
     }
 }
