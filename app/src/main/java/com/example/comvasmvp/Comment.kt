@@ -10,4 +10,7 @@ open class Comment : RealmObject() {
     var date: Date = Date()
     var title: String = ""
     var detail: String = ""
+    var progress: Long = 0
+    var time: Float = 0.0f
+    var tag = String()
 }

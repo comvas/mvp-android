@@ -1,5 +1,6 @@
 package com.example.comvasmvp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.format.DateFormat
@@ -127,7 +128,29 @@ class TicketEditActivity : AppCompatActivity() {
 
         // コメント追加ボタンの設定
         postComment.setOnClickListener {
+            val intent = Intent(this, CommentEditActivity::class.java)
+            intent.putExtra("project_id", projectId)
+            intent.putExtra("board_id", boardId)
+            intent.putExtra("ticket_id", ticketId)
+            startActivity(intent)
+            //activity?.startActivityFromFragment(this, intent, -1)
 
+            // refresh
+            val comments = ticket?.commentList?.where()?.findAll()
+            var commentListView: ListView = findViewById(R.id.commentListView)
+            commentListView.adapter = CommentAdapter(comments)
+        }
+
+        // リスト内のコメントクリック時の処理
+        var commentListView: ListView = findViewById(R.id.commentListView)
+        commentListView.setOnItemClickListener { parent, view, position, id ->
+            val comment = parent.getItemAtPosition(position) as Comment
+            val intent = Intent(this, CommentEditActivity::class.java)
+            intent.putExtra("project_id", projectId)
+            intent.putExtra("board_id", boardId)
+            intent.putExtra("ticket_id", ticketId)
+            intent.putExtra("comment_id", comment.commentId)
+            startActivity(intent)
         }
     }
 
