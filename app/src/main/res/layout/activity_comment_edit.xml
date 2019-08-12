@@ -79,7 +79,7 @@
             <EditText
                     android:layout_width="370dp"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:ems="10"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
