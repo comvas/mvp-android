@@ -12,6 +12,7 @@ import android.support.annotation.ColorInt
 import android.support.annotation.CheckResult
 import io.realm.Realm
 import io.realm.kotlin.where
+import kotlinx.android.synthetic.main.content_main.*
 
 
 class ColorFragment : Fragment() {
@@ -93,17 +94,37 @@ class ColorFragment : Fragment() {
         // TextViewをひも付けます
         var mTextView: TextView = view.findViewById(R.id.boardStatusView)
         var mTextView2: TextView = view.findViewById(R.id.boardStatusView2)
+        var mTextView3: TextView = view.findViewById(R.id.boardStatusView3)
 //        // Buttonのクリックした時の処理を書きます
 //        view.findViewById(R.id.button)
 //            .setOnClickListener(View.OnClickListener { mTextView.setText(mTextView.getText() + "!") })
-
-        //realm = Realm.getDefaultInstance()
-        //val boards = realm.where<Board>().equalTo("boardId", boardId).findAll()
 
         // 背景色をセットする
         view.setBackgroundColor(mBackgroundColor)
         // onCreateで受け取った値をセットする
         mTextView.setText(projectId.toString())
         mTextView2.setText(boardId.toString())
+
+        // Ticketのリスト表示
+        realm = Realm.getDefaultInstance()
+        val project = realm.where<Project>().equalTo("projectId", projectId).findFirst()
+        val board = project?.boardList?.where()?.equalTo("boardId", boardId)?.findFirst()
+
+        if (board?.ticketList?.isEmpty() == true){
+            mTextView3.setText("NULLLLL")
+        } else {
+            mTextView3.setText("nonNULLLLL")
+            val tickets = board?.ticketList?.where()?.findAll()
+            listView.adapter = TicketAdapter(tickets)
+        }
+//        val tickets = board?.ticketList?.where()?.findAll()
+//        if (tickets) {
+//            //listView.adapter = TicketAdapter(tickets)
+//            mTextView.setText("nonNULLLLLL")
+//            mTextView.setText(tickets.toString())
+//        }
+//        else {
+//            mTextView2.setText("NULLLLL")
+//        }
     }
 }

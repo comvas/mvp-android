@@ -3,14 +3,16 @@ package com.example.comvasmvp
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 import java.util.*
-import io.realm.RealmList
 
-open class Board : RealmObject() {
+open class Ticket : RealmObject() {
     @PrimaryKey
-    var boardId: Long = 0
+    var ticketId: Long = 0
     var date: Date = Date()
     var title: String = ""
+    var detail: String = ""
+    var progress: Long = 0
     var priority: Long = 0
-
-    var ticketList: RealmList<Ticket>? = null
+    var deadline: Date = Date()
+    var point: Long = 0
+    var tag: String = ""
 }
