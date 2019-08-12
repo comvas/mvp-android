@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.R.attr.button
+import android.content.Intent
 import android.graphics.Color
 import android.widget.TextView
 import android.support.annotation.ColorInt
 import android.support.annotation.CheckResult
+import android.widget.Button
+import android.widget.ListView
 import io.realm.Realm
 import io.realm.kotlin.where
 import kotlinx.android.synthetic.main.content_main.*
@@ -109,22 +112,52 @@ class ColorFragment : Fragment() {
         realm = Realm.getDefaultInstance()
         val project = realm.where<Project>().equalTo("projectId", projectId).findFirst()
         val board = project?.boardList?.where()?.equalTo("boardId", boardId)?.findFirst()
+        //val boards = project?.boardList?.where()?.findAll()
+        //val board = boards?.get(boardId.toInt())
+
 
         if (board?.ticketList?.isEmpty() == true){
             mTextView3.setText("NULLLLL")
         } else {
             mTextView3.setText("nonNULLLLL")
             val tickets = board?.ticketList?.where()?.findAll()
-            listView.adapter = TicketAdapter(tickets)
+            //listView.adapter = TicketAdapter(tickets)
+            var ticketListView: ListView = view.findViewById(R.id.ticketListView)
+            ticketListView.adapter = TicketAdapter(tickets)
         }
-//        val tickets = board?.ticketList?.where()?.findAll()
-//        if (tickets) {
-//            //listView.adapter = TicketAdapter(tickets)
-//            mTextView.setText("nonNULLLLLL")
-//            mTextView.setText(tickets.toString())
-//        }
-//        else {
-//            mTextView2.setText("NULLLLL")
-//        }
+
+        // Buttonクリック時の処理
+        var createTicketButton: Button = view.findViewById(R.id.createTicketButton)
+        createTicketButton.setOnClickListener {
+            val intent = Intent(activity, TicketEditActivity::class.java)
+            intent.putExtra("project_id", projectId)
+            intent.putExtra("board_id", boardId)
+            startActivity(intent)
+            //activity?.startActivityFromFragment(this, intent, -1)
+
+            // refresh
+            val tickets = board?.ticketList?.where()?.findAll()
+            var ticketListView: ListView = view.findViewById(R.id.ticketListView)
+            ticketListView.adapter = TicketAdapter(tickets)
+        }
+
+
+        // リスト内のチケットクリック時の処理
+        var ticketListView: ListView = view.findViewById(R.id.ticketListView)
+        ticketListView.setOnItemClickListener { parent, view, position, id ->
+            val ticket = parent.getItemAtPosition(position) as Ticket
+            val intent = Intent(activity, TicketEditActivity::class.java)
+            intent.putExtra("project_id", projectId)
+            intent.putExtra("board_id", boardId)
+            intent.putExtra("ticket_id", ticket.ticketId)
+            startActivity(intent)
+
+//
+//            // refresh
+//            val tickets = board?.ticketList?.where()?.findAll()
+//            var ticketListView: ListView = view.findViewById(R.id.ticketListView)
+//            ticketListView.adapter = TicketAdapter(tickets)
+        }
+
     }
 }

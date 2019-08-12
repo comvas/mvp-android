@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".TicketEditActivity">
+
+    <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <TextView
+                    android:text="チケット名："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp" android:layout_marginStart="16dp" android:id="@+id/textView4"/>
+            <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:id="@+id/ticketTitleEdit"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="16dp" android:hint="Ticket Title"/>
+            <TextView
+                    android:text="期限："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp" android:id="@+id/textView5" android:layout_marginTop="40dp"
+                    app:layout_constraintTop_toBottomOf="@+id/ticketTitleEdit"/>
+            <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:ems="10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                    android:id="@+id/ticketDeadlineEdit"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="8dp"/>
+            <TextView
+                    android:text="優先度："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp" android:layout_marginTop="40dp"
+                    android:id="@+id/textView6"/>
+            <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                    android:id="@+id/ticketPriorityEdit"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="8dp"/>
+            <TextView
+                    android:text="詳細："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp" android:layout_marginTop="40dp"
+                    android:id="@+id/textView7"/>
+            <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                    android:id="@+id/ticketDetailEdit"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="8dp" android:minLines="2" android:maxLines="8"/>
+            <TextView
+                    android:text="予想工数："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp" android:layout_marginTop="40dp"
+                    android:id="@+id/textView8"/>
+            <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:id="@+id/ticketPointEdit"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="進捗 (%) - 自動計算のためフォーカス不可設定："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp" android:layout_marginTop="40dp"
+                    android:id="@+id/textView9"/>
+            <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:id="@+id/ticketProgressEdit"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="16dp" android:focusable="false"/>
+            <TextView
+                    android:text="タグ："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp" android:layout_marginTop="40dp"
+                    android:id="@+id/textView10"/>
+            <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:id="@+id/ticketTagEdit"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="コメント："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp" android:layout_marginTop="40dp"
+                    android:id="@+id/textView11"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="16dp" android:layout_marginBottom="16dp" >
+                <Button
+                        android:text="削除"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/deleteTicket" android:background="@color/colorAccent"/>
+                <Button
+                        android:text="保存"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/saveTicket"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
