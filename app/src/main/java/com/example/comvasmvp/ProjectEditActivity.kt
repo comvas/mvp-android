@@ -40,14 +40,33 @@ class ProjectEditActivity : AppCompatActivity() {
             when (projectId) {
                 -1L -> {
                     realm.executeTransaction {
-                        val maxId = realm.where<Project>().max("projectId")
-                        val nextId = (maxId?.toLong() ?: 0L) + 1
-                        val project = realm.createObject<Project>(nextId)
+                        // Create new data for Project
+                        val projectMaxId = realm.where<Project>().max("projectId")
+                        val projectNextId = (projectMaxId?.toLong() ?: 0L) + 1
+                        val project = realm.createObject<Project>(projectNextId)
                         dateEdit.text.toString().toDate("yyyy/MM/dd")?.let {
                             project.date = it
                         }
                         project.title = titleEdit.text.toString()
                         project.detail = detailEdit.text.toString()
+
+                        // Create new data for Board
+                        val boardMaxId = realm.where<Board>().max("boardId")
+                        val boardNextId = (boardMaxId?.toLong() ?: 0L) + 1
+                        val board1 = realm.createObject<Board>(boardNextId)
+                        val board2 = realm.createObject<Board>(boardNextId+1)
+                        val board3 = realm.createObject<Board>(boardNextId+2)
+                        board1.title = "ToDo"
+                        board2.title = "InProgress"
+                        board3.title = "Done"
+                        board1.priority = 1
+                        board2.priority = 2
+                        board3.priority = 3
+
+                        // Set relationship
+                        project.boardList?.add(board1)
+                        project.boardList?.add(board2)
+                        project.boardList?.add(board3)
                     }
                     alert("追加しました") {
                         yesButton { finish() }

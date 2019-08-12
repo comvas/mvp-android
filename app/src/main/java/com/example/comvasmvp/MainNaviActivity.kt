@@ -7,6 +7,11 @@ import android.widget.TextView
 
 class MainNaviActivity : AppCompatActivity() {
 
+    //private val projectId: Long = intent.getLongExtra("project_id", -1L)
+    //private val projectId: Long = 0
+    //private val projectId: Long = intent.getLongExtra("project_id", 0)
+    private var projectId: Long = 0
+
     private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -18,9 +23,12 @@ class MainNaviActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_board -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.frameLayout, BoardFragment())
-                    .commit()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frameLayout, BoardFragment.createInstance(projectId))
+                transaction.commit()
+//                supportFragmentManager.beginTransaction()
+//                    .replace(R.id.frameLayout, BoardFragment)
+//                    .commit()
 //                textMessage.setText(R.string.title_board)
                 return@OnNavigationItemSelectedListener true
             }
@@ -54,6 +62,7 @@ class MainNaviActivity : AppCompatActivity() {
             .replace(R.id.frameLayout, HomeFragment())
             .commit()
 
-        val projectId = intent?.getLongExtra("project_id", -1L)
+        //projectId = intent?.getLongExtra("project_id", -1L)
+        projectId = intent.getLongExtra("project_id", -1L)
     }
 }

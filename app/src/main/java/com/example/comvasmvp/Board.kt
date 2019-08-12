@@ -5,13 +5,12 @@ import io.realm.annotations.PrimaryKey
 import java.util.*
 import io.realm.RealmList
 
-
-open class Project : RealmObject() {
+open class Board : RealmObject() {
     @PrimaryKey
-    var projectId: Long = 0
+    var boardId: Long = 0
     var date: Date = Date()
     var title: String = ""
-    var detail: String = ""
+    var priority: Long = 0
 
-    var boardList: RealmList<Board>? = null
+    var ticketList: RealmList<Ticket>? = null
 }
