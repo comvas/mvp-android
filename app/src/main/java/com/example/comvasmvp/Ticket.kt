@@ -17,5 +17,5 @@ open class Ticket : RealmObject() {
     var point: Long = 0
     var tag: String = ""
 
-    var commetList: RealmList<Comment>? = null
+    var commentList: RealmList<Comment>? = null
 }
