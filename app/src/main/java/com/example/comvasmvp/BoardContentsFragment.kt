@@ -5,20 +5,16 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.R.attr.button
 import android.content.Intent
 import android.graphics.Color
 import android.widget.TextView
 import android.support.annotation.ColorInt
-import android.support.annotation.CheckResult
 import android.widget.Button
 import android.widget.ListView
 import io.realm.Realm
 import io.realm.kotlin.where
-import kotlinx.android.synthetic.main.content_main.*
 
-
-class ColorFragment : Fragment() {
+class BoardContentsFragment  : Fragment() {
 
     private lateinit var realm: Realm
 
@@ -27,7 +23,7 @@ class ColorFragment : Fragment() {
     private val KEY_BACKGROUND = "key_background_color"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return  inflater.inflate(R.layout.fragment_color, container, false)
+        return  inflater.inflate(R.layout.fragment_board_contents, container, false)
     }
 
 //    // このメソッドからFragmentを作成することを強制する
@@ -52,17 +48,17 @@ class ColorFragment : Fragment() {
         private val KEY_PROJECTID = "project_id"
         private val KEY_BOARDID = "board_id"
 
-        fun createInstance(name: String, @ColorInt color: Int, projectId: Long, boardId: Long): ColorFragment {
-            var colorFragment = ColorFragment()
+        fun createInstance(name: String, @ColorInt color: Int, projectId: Long, boardId: Long): BoardContentsFragment {
+            var boardContentsFragment = BoardContentsFragment()
             val args = Bundle()
             // Key/Pairの形で値をセットする
             args.putString(KEY_NAME, name)
             args.putInt(KEY_BACKGROUND, color)
             args.putLong(KEY_PROJECTID, projectId)
             args.putLong(KEY_BOARDID, boardId)
-            colorFragment.arguments = args
+            boardContentsFragment.arguments = args
 
-            return colorFragment
+            return boardContentsFragment
         }
     }
 
@@ -136,7 +132,6 @@ class ColorFragment : Fragment() {
             ticketListView.adapter = TicketAdapter(tickets)
         }
 
-
         // リスト内のチケットクリック時の処理
         var ticketListView: ListView = view.findViewById(R.id.ticketListView)
         ticketListView.setOnItemClickListener { parent, view, position, id ->
@@ -147,7 +142,6 @@ class ColorFragment : Fragment() {
             intent.putExtra("ticket_id", ticket.ticketId)
             startActivity(intent)
 
-//
 //            // refresh
 //            val tickets = board?.ticketList?.where()?.findAll()
 //            var ticketListView: ListView = view.findViewById(R.id.ticketListView)
