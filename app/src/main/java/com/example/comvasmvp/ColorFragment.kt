@@ -96,17 +96,12 @@ class ColorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // TextViewをひも付けます
         var mTextView: TextView = view.findViewById(R.id.boardStatusView)
-        var mTextView2: TextView = view.findViewById(R.id.boardStatusView2)
-        var mTextView3: TextView = view.findViewById(R.id.boardStatusView3)
 //        // Buttonのクリックした時の処理を書きます
 //        view.findViewById(R.id.button)
 //            .setOnClickListener(View.OnClickListener { mTextView.setText(mTextView.getText() + "!") })
 
         // 背景色をセットする
         view.setBackgroundColor(mBackgroundColor)
-        // onCreateで受け取った値をセットする
-        mTextView.setText(projectId.toString())
-        mTextView2.setText(boardId.toString())
 
         // Ticketのリスト表示
         realm = Realm.getDefaultInstance()
@@ -115,11 +110,11 @@ class ColorFragment : Fragment() {
         //val boards = project?.boardList?.where()?.findAll()
         //val board = boards?.get(boardId.toInt())
 
+        // ボードのタイトルをセットする
+        mTextView.setText(board?.title)
 
         if (board?.ticketList?.isEmpty() == true){
-            mTextView3.setText("NULLLLL")
         } else {
-            mTextView3.setText("nonNULLLLL")
             val tickets = board?.ticketList?.where()?.findAll()
             //listView.adapter = TicketAdapter(tickets)
             var ticketListView: ListView = view.findViewById(R.id.ticketListView)
