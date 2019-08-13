@@ -17,7 +17,7 @@ class MainNaviActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_home -> {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.frameLayout, HomeFragment())
+                    .replace(R.id.frameLayout, HomeFragment.createInstance(projectId))
                     .commit()
 //                textMessage.setText(R.string.title_home)
                 return@OnNavigationItemSelectedListener true
@@ -58,11 +58,11 @@ class MainNaviActivity : AppCompatActivity() {
         //textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frameLayout, HomeFragment())
-            .commit()
-
         //projectId = intent?.getLongExtra("project_id", -1L)
         projectId = intent.getLongExtra("project_id", -1L)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, HomeFragment.createInstance(projectId))
+            .commit()
     }
 }

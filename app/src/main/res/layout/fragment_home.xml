@@ -1,13 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/title_home"/>
-
+    <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <ImageView
+                    android:src="@drawable/home_top_m"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="centerCrop"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                    android:layout_marginTop="-60dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="16dp" android:layout_marginBottom="16dp" >
+                <TextView
+                        android:text="Your Dream："
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                        android:layout_marginTop="0dp" android:layout_marginStart="16dp"
+                        android:textColor="#ffffff" android:textSize="16sp"/>
+                <TextView
+                        android:text="（Project DBから動的に取得）"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                        android:layout_marginTop="0dp" android:layout_marginStart="16dp"
+                        android:textColor="#ffffff" android:textSize="16sp"
+                        android:id="@+id/projectTitleText"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                    android:layout_marginTop="-10dp" app:layout_constraintTop_toBottomOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="16dp" android:layout_marginBottom="16dp" >
+                <TextView
+                        android:text="Deadline：      "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                        android:layout_marginTop="0dp" android:layout_marginStart="16dp"
+                        android:textColor="#ffffff" android:textSize="16sp"/>
+                <TextView
+                        android:text="（Project DBから動的に取得）"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                        android:layout_marginTop="0dp" android:layout_marginStart="16dp"
+                        android:textColor="#ffffff" android:textSize="16sp"
+                        android:id="@+id/projectDateText"/>
+            </LinearLayout>
+            <TextView
+                    android:text="残り日数： （Project DBから動的に取得）"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp" android:layout_marginStart="16dp"
+                    android:id="@+id/projectRemainingDateText"/>
+            <TextView
+                    android:text="残り時間： （Project DBから動的に取得）"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp" android:layout_marginStart="16dp"
+                    android:id="@+id/projectRemainingTimeText"/>
+            <TextView
+                    android:text="バーンダウンチャート"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="チケットの消化速度と残りチケット数を可視化"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <ImageView
+                    android:src="@drawable/sprint_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="バーンアップチャート"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="チケットの生成/消化速度、および予想消化数を可視化"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <ImageView
+                    android:src="@drawable/burnup_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="ロードマップ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="ロードマップごとのチケットのステータスを可視化"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <ImageView
+                    android:src="@drawable/roadmap_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="Time in State"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="各ボードにおけるチケットの滞在時間平均を可視化"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <ImageView
+                    android:src="@drawable/timeinstate_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
