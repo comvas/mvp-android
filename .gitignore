@@ -147,3 +147,10 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.gitignore.io/api/androidstudio
+
+
+app/src/main/res/drawable-v24/burnup_s.jpg
+app/src/main/res/drawable-v24/roadmap.jpg
+app/src/main/res/drawable-v24/roadmap_s.jpg
+app/src/main/res/drawable-v24/sprint_s.jpg
+app/src/main/res/drawable-v24/timeinstate_s.jpg
