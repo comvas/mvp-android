@@ -32,14 +32,14 @@
                         android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
                         android:layout_marginTop="0dp" android:layout_marginStart="16dp"
-                        android:textColor="#ffffff"/>
+                        android:textColor="#ffffff" android:textSize="16sp"/>
                 <TextView
-                        android:text="TOEICで700点を取る！"
+                        android:text="（Project DBから動的に取得）"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
                         android:layout_marginTop="0dp" android:layout_marginStart="16dp"
-                        android:textColor="#ffffff"
+                        android:textColor="#ffffff" android:textSize="16sp"
                         android:id="@+id/projectTitleText"/>
             </LinearLayout>
             <LinearLayout
@@ -56,28 +56,30 @@
                         android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
                         android:layout_marginTop="0dp" android:layout_marginStart="16dp"
-                        android:textColor="#ffffff"/>
+                        android:textColor="#ffffff" android:textSize="16sp"/>
                 <TextView
-                        android:text="2019/10/01"
+                        android:text="（Project DBから動的に取得）"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
                         android:layout_marginTop="0dp" android:layout_marginStart="16dp"
-                        android:textColor="#ffffff"
+                        android:textColor="#ffffff" android:textSize="16sp"
                         android:id="@+id/projectDateText"/>
             </LinearLayout>
             <TextView
-                    android:text="テスト"
+                    android:text="残り日数： （Project DBから動的に取得）"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp" android:layout_marginStart="16dp"/>
+                    android:layout_marginTop="16dp" android:layout_marginStart="16dp"
+                    android:id="@+id/projectRemainingDateText"/>
             <TextView
-                    android:text="テスト"
+                    android:text="残り時間： （Project DBから動的に取得）"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp" android:layout_marginStart="16dp"/>
+                    android:layout_marginTop="16dp" android:layout_marginStart="16dp"
+                    android:id="@+id/projectRemainingTimeText"/>
 
 
         </LinearLayout>
