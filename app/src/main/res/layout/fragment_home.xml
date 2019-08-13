@@ -160,6 +160,90 @@
                     android:layout_height="190dp"
                     android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="カレンダー"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="チケットのコメントから、日ごとの情報を取得。投資時間、進捗、取り組んだ内容、その詳細を表示。"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <com.github.sundeepk.compactcalendarview.CompactCalendarView
+                    android:id="@+id/compactcalendar_view"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="250dp"
+                    app:compactCalendarTargetHeight="250dp"
+                    app:compactCalendarTextSize="12sp"
+                    app:compactCalendarBackgroundColor="#ffe95451"
+                    app:compactCalendarTextColor="#fff"
+                    app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
+                    app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
+                    app:compactCalendarMultiEventIndicatorColor="#fff"/>
+            <TextView
+                    android:text="2019/08/14 Summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp" android:layout_marginRight="16dp"
+                    android:layout_marginTop="25dp" android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="投資時間：　2.75時間\n進捗：　5%\nインプット70%, アウトプット30%"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="25dp"/>
+            <TextView
+                    android:text="[Android APP Fragmentの調査]"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="25dp" android:textColor="#505050"/>
+            <TextView
+                    android:text="・Activityでレイアウト定義、Frangmentでコンテンツ定義\n・フラグメントは再利用可能なパーツのような概念\n・オブジェクト指向っぽい捉え方をするとすっきり理解できた"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="50dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <TextView
+                    android:text="[Android APP DB実装]"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="25dp" android:textColor="#505050"/>
+            <TextView
+                    android:text="・realmでプロジェクト、ボード、チケットでテーブル作成\n・将来的にはDBはAWS上にクラウド化したいため暫定的な実装\n・しかし実際に実装して動かしてみることで、最適な構成を理解できた！"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="50dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <TextView
+                    android:text="[余談]"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="25dp" android:textColor="#505050"/>
+            <TextView
+                    android:text="・頭で概要を分かってても、実際に手を動かして初めて分かることが多いな！それを解決するたびに、実力がついていくのな。個人的にこれはかなり手応えがあるから、このままプロトを作って会社作っていいなマジで。そして、Androidアプリは複雑と思って避けてたけど、がっぷり四つで向き合うと意外といけるわ！"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="50dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
