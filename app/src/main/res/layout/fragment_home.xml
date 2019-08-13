@@ -80,8 +80,86 @@
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp" android:layout_marginStart="16dp"
                     android:id="@+id/projectRemainingTimeText"/>
-
-
+            <TextView
+                    android:text="バーンダウンチャート"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="チケットの消化速度と残りチケット数を可視化"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <ImageView
+                    android:src="@drawable/sprint_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="バーンアップチャート"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="チケットの生成/消化速度、および予想消化数を可視化"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <ImageView
+                    android:src="@drawable/burnup_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="ロードマップ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="ロードマップごとのチケットのステータスを可視化"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <ImageView
+                    android:src="@drawable/roadmap_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+            <TextView
+                    android:text="Time in State"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                    android:layout_marginTop="60dp" android:layout_marginStart="16dp"
+                    android:textColor="#505050" android:textSize="18sp"/>
+            <TextView
+                    android:text="各ボードにおけるチケットの滞在時間平均を可視化"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                    android:layout_marginTop="12dp"/>
+            <ImageView
+                    android:src="@drawable/timeinstate_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="10dp" android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
